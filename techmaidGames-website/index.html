@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechMaid Games</title>
+  <link rel="stylesheet" href="style.css" />
+
+
+</head>
+<body>
+  <header>
+    <img class="header_img" src="./images/techmaid-games.png" alt="TechMaid Games">
+    <nav>
+      <a href="#" id="nav-home">HOME</a>
+      <a href="#" id="nav-about">ABOUT</a>
+      <a href="#" id="nav-contact">CONTACT</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home section: games grid -->
+    <section id="home-section">
+      <h2>Our Games</h2>
+      <div class="games-grid">
+        <a href="https://techmaidgames.itch.io/decoderz-reborn/download/WFC0XQcJwgQyPMSKMtefymVVwLqkQJkVV_KgMPAn" class="game-card">
+          <img src=".\images\DecoderZ-Reborn.jpg" alt="Game 1 Cover"/>
+          <div class="game-info">
+            <h3>DecoderZ Reborn</h3>
+            <p>Release: August 2025</p>
+          </div>
+        </a>
+        <a href="#" class="game-card">
+          <img src="placeholder.png" alt="Unavailable Cover Art"/>
+          <div class="game-info">
+            <h3>Bug Game</h3>
+            <p>Release: ???</p>
+          </div>
+        </a>
+        <!-- more game cards… -->
+      </div>
+    </section>
+
+    <!-- About section -->
+    <section id="about-section">
+      <h2>About TechMaid Games</h2>
+      <p>Welcome to TechMaid Games, it is a branch-off company from an already existing company, TechMaid Bistro. Whatever TechMaid Games may or may not do is completely of its own volition and no decision were made by the TechMaid Bistro Owners, simply put, TechMaid Games is on its own.<br><br>TechMaid Games is a brand-new name aiming to enter the game industry as indie developer. TechMaid Games aims to combine learning and gaming by implementing game elements as a way of learning things. It aims to make learning enjoyable and more bearable. TechMaid Games aims to produce a free game that would benefit Students the most, games that won't need much time but still provides content to play and enjoy<br><br>TechMaid Games is ran by a single person, goes by the nickname "Kuukay", he is a College Student and currently taking the course of Computer Engineering Technology. He started this "company" out of boredom during his Vacation, June 2025. He spent his free time creating games in an unorthodox way and rather inefficient and stressful way, he enjoys it either way. He started this shenanigans hoping to struck gold and make some pocket money if ever.</p>
+      <!-- existing about content -->
+    </section>
+
+    <!-- Contact section (example placeholder) -->
+    <section id="contact-section">
+      <h2>Contact</h2>
+      <p>Email: kukay126@gmail.com</p>
+      <!-- add form or details as desired -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Kuukay</p>
+  </footer>
+
+  <!-- JavaScript at end of body -->
+  <script>
+    // List of section IDs
+    const sections = {
+      home: document.getElementById('home-section'),
+      about: document.getElementById('about-section'),
+      contact: document.getElementById('contact-section')
+    };
+
+    // Nav links
+    const navHome = document.getElementById('nav-home');
+    const navAbout = document.getElementById('nav-about');
+    const navContact = document.getElementById('nav-contact');
+
+    function showSection(key) {
+      // Hide all
+      Object.values(sections).forEach(sec => {
+        sec.style.display = 'none';
+      });
+      // Show chosen
+      sections[key].style.display = 'block';
+
+      // Optionally, you can add an “active” class on nav links for styling
+      [navHome, navAbout, navContact].forEach(a => a.classList.remove('active'));
+      if (key === 'home') navHome.classList.add('active');
+      if (key === 'about') navAbout.classList.add('active');
+      if (key === 'contact') navContact.classList.add('active');
+    }
+
+    // Attach click handlers
+    navHome.addEventListener('click', e => {
+      e.preventDefault();
+      showSection('home');
+    });
+    navAbout.addEventListener('click', e => {
+      e.preventDefault();
+      showSection('about');
+    });
+    navContact.addEventListener('click', e => {
+      e.preventDefault();
+      showSection('contact');
+    });
+
+    // On page load, show Home by default:
+    document.addEventListener('DOMContentLoaded', () => {
+      showSection('home');
+    });
+  </script>
+</body>
+</html>
